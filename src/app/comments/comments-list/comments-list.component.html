@@ -1,0 +1,23 @@
+<h6 class="text-center">Comments</h6><br/>
+
+<div class="container">
+  <div class="row justify-content-center comment" *ngFor="let comment of commentList; let i = index">
+    <div class="col-8 wrap">
+      <div class="index">{{i + 1}}</div>
+      <div class="col-7 text-wrap">
+        <h4>Title: {{comment.name}}</h4>
+        <h4>Description: {{comment.message}}</h4>
+      </div>
+      <div class="col-3 btn-wrap">
+        <a class="btn btn-outline-primary" (click)="onEdit(comment)">
+          Edit
+        </a>
+        <a class="btn btn-outline-primary" (click)="onDelete(comment.$key)">
+          Remove
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+

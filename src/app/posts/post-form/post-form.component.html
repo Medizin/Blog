@@ -1,0 +1,20 @@
+<h2>Posts:</h2>
+<button class="btn" (click)="togglePostForm()">Add Post</button>
+
+<div class="new-post" [hidden] = "!formStatus">
+  <form #postForm='ngForm' (ngSubmit)="onSubmit(postForm)">
+    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="postService.selectedPost.$key">
+    <div class="form-group">
+      <label>Title</label>
+      <input class="form-control" name="title" #title="ngModel" [(ngModel)]="postService.selectedPost.title" required>
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <input class="form-control" name="description" #description="ngModel" [(ngModel)]="postService.selectedPost.description">
+    </div>
+    <!--<input value="{{dateText | date: 'shortDate'}}" name="date" #date="ngModel" [(ngModel)]="postService.selectedPost.date">-->
+    <div class="form-group">
+      <button class="btn btn-default" [disabled] = '!postForm.valid'>Submit</button>
+    </div>
+  </form>
+</div>

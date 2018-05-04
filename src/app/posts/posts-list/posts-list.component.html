@@ -1,0 +1,23 @@
+<h6 class="text-center">Post List</h6><br/>
+
+<div class="container">
+  <div class="row justify-content-center post" *ngFor="let post of postList; let i = index">
+    <div class="col-8 wrap">
+      <div class="index">{{i + 1}}</div>
+      <div class="col-7 text-wrap">
+        <h4>Title: {{post.title}}</h4>
+        <h4>Description: {{post.description}}</h4>
+      </div>
+      <div class="col-3 btn-wrap">
+        <a class="btn btn-outline-primary" (click)="onEdit(post)">
+          Edit
+        </a>
+        <a class="btn btn-outline-primary" (click)="onDelete(post.$key)">
+          Remove
+        </a>
+      </div>
+      <a class="btn btn-outline-primary more" routerLink="/post/{{post.$key}}">More</a>
+    </div>
+  </div>
+</div>
+
